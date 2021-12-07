@@ -1,0 +1,17 @@
+:not(pre) > code:before,
+:not(pre) > code:after {
+  content: "";
+}
+
+:not(pre) > code {
+  padding: 0.125rem;
+}
+
+.shiki-container > .shiki {
+  height: 377px;
+  overflow: auto;
+}
+
+.slidev-layout h1 + p {
+  opacity: 1;
+}
