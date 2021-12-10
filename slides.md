@@ -2,7 +2,9 @@
 highlighter: shiki
 layout: cover
 lineNumbers: true
-background: https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+background: >-
+  https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+title: 🔌 Entkoppelung von Games im Frontend von {BOTolution}
 ---
 
 # 🔌 Entkoppelung von Games im Frontend von {BOTolution}
@@ -53,12 +55,20 @@ Vortrag von Antonio Sarcevic
 
 <img class="mx-auto" src="/parameters.png" alt="Game Parameters Form">
 
-- 🔢 Standardwerte
-- ✏️ `matchConfig` mutieren
 - 📝 Formularelemente
+- ✏️ `matchConfig` mutieren
+- 🔢 Standardwerte
 - 🔌 Entkoppelung 🆕
 
 </div>
+
+<!--
+- dynamische Formularelemente für jedes Spiel spezifisch
+- Anpassung matchConfig welche zur Initialisierung ans Backend geschickt wird
+- Standardwerte für jedes Feld oder sogar Min Max values
+- jetzt neu: Entkoppelung von Platform und Spiel
+  - Frontend sollte nicht neu gebaut werden für neues Spies
+ -->
 
 ---
 
@@ -118,6 +128,8 @@ Vortrag von Antonio Sarcevic
 ```
 
 <!--
+- Disclaimer: Code zur veranschaulichung angepasst
+
 - Bisherige Lösung für Game Parameter
 
 - Für jedes Game eine GameIdParameter Komponente die Ziele erfüllt
@@ -180,12 +192,85 @@ Vortrag von Antonio Sarcevic
 ```
 
 <!--
-- In der NewMatch  in der diese GameIdParameter Komponenten genutzt werden
+- NewMatch.svelte regelt das erstellen für ein neues Match
+- Importiert alle Spiele Parameter Komponenten
+  - zeigt abhängig von gewähltem Spiel an
+- Entkoppelung nicht gegeben
+  - Spiele händisch zu dem wachsendem If/Else Block hinzugefügt werden
  -->
 
 ---
 
-# ⚙️ Game Parameters
+# Game Parameters
+
+🧪 Technologie
+
+- GameParameters als beschreibung eines JSON Objekts
+- JSON Schema um JSON Objekte zu beschreiben
+
+```json
+{} // erlaubt valides JSON jeder Art
+```
+
+```json
+{ "type": "string" } // erlaubt JSON vom Typ String (z.B. "Hi")
+```
+
+```json
+// erlaubt JSON Objekt mit someKey vom Typ String
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "someKey": {
+      "type": "string"
+    }
+  }
+}
+```
+
+<!--
+- Game Parameters als beschreibung eines JSON Objekts
+- JSON Schema als Spezifikation von JSON Dokumenten
+  - kann z.B. Objekte Beschreiben
+  - wird in der Regel zum validieren von JSON Dokumenten genutzt
+ -->
+
+---
+
+# Game Parameters
+
+🧪 Technologie
+
+- 🔢 Standardwerte ✅
+- 🔌 Entkoppelung ✅
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "someKey": {
+      "type": "string",
+      "default": "default value"
+    }
+  }
+}
+```
+
+- 📝 Formularelemente 👀
+- ✏️ `matchConfig` mutieren 👀
+
+<!--
+- Bietet Möglichkeit Default, Min und Max werte anzugeben
+
+- Schema ist JSON an sich
+  - Kann entkoppelt von einem beliebigen Endpunkt zur laufzeit geladen werden
+ -->
+
+---
+
+# Game Parameters
 
 Umsetzung
 
