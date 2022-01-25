@@ -53,12 +53,12 @@ Vortrag von Antonio Sarcevic
 
 <div class="grid grid-cols-2 gap-4">
 
-<img class="mx-auto" src="/parameters.png" alt="Game Parameters Form">
-
 - 📝 Formularelemente
 - ✏️ `matchConfig` mutieren
 - 🔢 Standardwerte
 - 🔌 Entkoppelung 🆕
+
+<img class="mx-auto" src="/parameters.png" alt="Game Parameters Form">
 
 </div>
 
