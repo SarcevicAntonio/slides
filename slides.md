@@ -21,12 +21,10 @@ Vortrag von Antonio Sarcevic
 
 # Inhalt
 
-<br>
-
 - ⚙️ Game Parameters
 - 🎲 Game UI Component
 
-<br>
+_jeweils ..._
 
 1. 🏆 Ziele
 1. 🏁 Ausgangsposition
@@ -74,13 +72,13 @@ Vortrag von Antonio Sarcevic
 
 # ⚙️ Game Parameters
 
-🏁 Ausgangsposition: `TicTacToeParameters.svelte`
+[🏁 Ausgangsposition: `TicTacToeParameters.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/987a29b89ea68bdb56037922bf41bf73560ca667/FrontEnd/src/lib/games/TicTacToeParameters.svelte)
 
 ```html{all|4-13|15-19|23-47}
 <script>
   import { onMount } from "svelte";
 
-  // 🔢 Standardwerte
+  // 🔢 Standardwerte ✅
   let defaults = {
     parameters: {
       gameBoardSize: {
@@ -91,7 +89,7 @@ Vortrag von Antonio Sarcevic
     },
   };
 
-  // ✏️ `matchConfig` mutieren
+  // ✏️ `matchConfig` mutieren ✅
   export let matchConfig;
   onMount(() => {
     matchConfig = { ...matchConfig, ...defaults };
@@ -99,7 +97,7 @@ Vortrag von Antonio Sarcevic
 </script>
 
 {#if matchConfig.parameters && matchConfig.parameters.gameBoardSize}
-<!-- 📝 Formularelemente -->
+<!-- 📝 Formularelemente ✅ -->
 <label>
   # of rows
   <input
@@ -148,7 +146,7 @@ Vortrag von Antonio Sarcevic
 
 # ⚙️ Game Parameters
 
-🏁 Ausgangsposition: `NewMatch.svelte` _(gekürzt)_
+[🏁 Ausgangsposition: `NewMatch.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/987a29b89ea68bdb56037922bf41bf73560ca667/FrontEnd/src/pages/matches/_components/NewMatch.svelte)
 
 ```html{all|22-27}
 <script>
@@ -201,23 +199,24 @@ Vortrag von Antonio Sarcevic
 
 ---
 
-# Game Parameters
+# ⚙️ Game Parameters
 
 🧪 Technologie
 
-- GameParameters als beschreibung eines JSON Objekts
-- JSON Schema um JSON Objekte zu beschreiben
+<img src="/json-schema-logo.png" alt="JSON Schema Logo" class="absolute top-10 right-10 w-100">
+
+- GameParameters: Beschreibung eines JSON Objekts
+- JSON Schema: Sprache zur Beschreibung JSON Objekte
 
 ```json
 {} // erlaubt valides JSON jeder Art
 ```
 
 ```json
-{ "type": "string" } // erlaubt JSON vom Typ String (z.B. "Hi")
+{ "type": "string" } // erlaubt JSON vom Typ String (z.B. "Hello JSON Schema")
 ```
 
 ```json
-// erlaubt JSON Objekt mit someKey vom Typ String
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -226,7 +225,7 @@ Vortrag von Antonio Sarcevic
       "type": "string"
     }
   }
-}
+} // erlaubt ein JSON Objekt mit someKey und Wert vom Typ String (z.B. { someKey: "Hello JSON Schema" })
 ```
 
 <!--
@@ -238,28 +237,25 @@ Vortrag von Antonio Sarcevic
 
 ---
 
-# Game Parameters
+# ⚙️ Game Parameters
 
-🧪 Technologie
+🧪 Technologie in Bezug auf 🏆 Ziele
 
-- 🔢 Standardwerte ✅
-- 🔌 Entkoppelung ✅
+- 🔌 Entkoppelung durch JSON Endpunkt ✅
+- 🔢 JSON Schema unterstützt Standardwerte ✅
 
-```json
-{
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "someKey": {
-      "type": "string",
-      "default": "default value"
+  ```json
+  {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "someKey": {
+        "type": "string",
+        "default": "default value"
+      }
     }
   }
-}
-```
-
-- 📝 Formularelemente 👀
-- ✏️ `matchConfig` mutieren 👀
+  ```
 
 <!--
 - Bietet Möglichkeit Default, Min und Max werte anzugeben
@@ -270,9 +266,222 @@ Vortrag von Antonio Sarcevic
 
 ---
 
-# Game Parameters
+# ⚙️ Game Parameters
 
-Umsetzung
+🧪 Technologie
+
+- 📝 Formularelemente 👀
+
+  --> Frontendseitiges interpretieren der JSON Schema notwendig
+
+- ✏️ `matchConfig` mutieren 👀
+
+  --> Frontendseitiges verknüpfen der Input Elemente mit `matchConfig` Objekt
+
+<!--
+
+- kein Paket zum parsen und erstellen von Formularelementen + Mutieren von Objekten
+
+-->
+
+---
+
+# ⚙️ Game Parameters
+
+[🔨 Umsetzung: `/games/tictactoe/parameters.json`:](https://git.fh-muenster.de/swa1/coding-challenge/games/cc-tictactoe/-/blob/master/parameters.json)
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "gameBoardSize": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "number",
+          "default": 3,
+          "minimum": 1
+        },
+        "columns": {
+          "type": "number",
+          "default": 3,
+          "minimum": 1
+        },
+        "winningLength": {
+          "type": "number",
+          "default": 3,
+          "minimum": 1
+        }
+      }
+    }
+  }
+}
+```
+
+<!--
+- JSON Schema für TicTacToe GameParameters
+- Ausgeliefert über Microservice Endpunkt bzw. Referee Container
+- JSON Schema kann auch minimum und maximum!
+-->
+
+---
+
+# ⚙️ Game Parameters
+
+[🔨 Umsetzung: `GamePropField.svelte`:](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/games/GameParameters/GamePropField.svelte)
+
+<!-- prettier-ignore-start -->
+```html
+<script>
+  import titleCase from "../../utils/titleCase";
+  import { createEventDispatcher, tick } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  export let props = {};
+  export let name = "";
+  let displayName = titleCase(name);
+
+  async function handleFieldChange() {
+    await tick();
+    dispatch("bubbleUpChange", { path: [name], value });
+  }
+
+  function handleBubbleUpChange(evt) {
+    if (name) {
+      let newPath = [name, ...evt.detail.path];
+      dispatch("bubbleUpChange", { path: newPath, value: evt.detail.value });
+    } else {
+      dispatch("bubbleUpChange", evt.detail);
+    }
+  }
+
+  let value = props.default;
+  if (name) {
+    handleFieldChange();
+  }
+</script>
+
+<div class="field">
+  {#if props.type === "object"}
+    {#if displayName}
+      {displayName}
+    {:else}
+      Game Parameters
+    {/if}
+    {#each Object.keys(props.properties) as prop}
+      <div class="child">
+        <svelte:self
+          props="{props.properties[prop]}"
+          name="{prop}"
+          on:bubbleUpChange="{handleBubbleUpChange}"
+        />
+      </div>
+    {/each}
+  {:else if props.type === "number"}
+    <label>
+      {displayName}
+      <input
+        type="number"
+        min="{props.minimum}"
+        max="{props.maximum}"
+        bind:value
+        on:change="{handleFieldChange}"
+      />
+    </label>
+  {:else if props.type === "string"}
+    <label>
+      {displayName}
+      <input type="text" bind:value on:change="{handleFieldChange}" />
+    </label>
+  {:else}
+    {name} # undefined type
+  {/if}
+</div>
+
+<style>
+  .field {
+    margin: 8px 0;
+  }
+  .child {
+    margin-left: 8px;
+  }
+</style>
+```
+<!-- prettier-ignore-end -->
+
+<!-- asdfasfd -->
+
+---
+
+# ⚙️ Game Parameters
+
+[🔨 Umsetzung: `GameParameters.svelte`:](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/games/GameParameters/GameParameters.svelte)
+
+```html
+<script>
+  import { InlineNotification, Loading } from "carbon-components-svelte";
+  import { onMount } from "svelte";
+  import GamePropField from "./GamePropField.svelte";
+
+  export let config;
+
+  onMount(() => {
+    config = { ...config, parameters: {} };
+  });
+
+  async function getParamSchema(gameId) {
+    const res = await fetch(`/games/${gameId.toLowerCase()}/parameters.json`);
+    const json = await res.json();
+    if (res.ok) {
+      return json;
+    } else {
+      throw new Error(json);
+    }
+  }
+
+  let promise = getParamSchema(config.gameId);
+
+  function handleBubbleUpChange(evt) {
+    setValueWithPath(evt.detail.value, evt.detail.path);
+  }
+
+  function setValueWithPath(value, path) {
+    let schema; // a moving reference to internal objects within obj
+    if ("gameParameters" in config) {
+      schema = config.gameParameters; // TournamentConfig
+    } else if ("parameters" in config) {
+      schema = config.parameters; // MatchConfig
+    }
+    let len = path.length;
+    for (var i = 0; i < len - 1; i++) {
+      let elem = path[i];
+      if (!schema[elem]) schema[elem] = {};
+      schema = schema[elem];
+    }
+
+    schema[path[len - 1]] = value;
+
+    config = config;
+  }
+</script>
+
+{#await promise}
+<Loading withOverlay="{false}" />
+{:then props}
+<GamePropField {props} on:bubbleUpChange="{handleBubbleUpChange}" />
+{:catch _}
+<InlineNotification
+  title="Fehler"
+  subtitle="Entschuldige, irgendwas ist bei uns schief gelaufen."
+/>
+{/await}
+```
+
+<!-- asdfasfd -->
+
+---
 
 Files before Commit: https://git.fh-muenster.de/swa1/coding-challenge/platform/-/tree/987a29b89ea68bdb56037922bf41bf73560ca667
 Commit: https://git.fh-muenster.de/swa1/coding-challenge/platform/-/commit/417eacc1005ab37b60c52a8ebc4a5564d9c6e549
