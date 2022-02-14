@@ -10,13 +10,19 @@ title: 🔌 Entkoppelung von Games im Frontend von {BOTolution}
 
 Vortrag von Antonio Sarcevic - Masterprojekt: Coding Challenge / {BOTolution} - SS 2021 + WS 2021/22
 
+<img class="mt-4" src="/fh.svg" alt="FH Münster Logo">
+
+<!-- prettier-ignore-start -->
 <!--
 - Willkommen
 - Antonio Sarcevic, zuständig für Frontend von {BOTolution}
 - im Vortrag: Entkoppelung von Games (mit dazugehörigen Komponenten) im Frontend
 -->
-
 ---
+layout: image-right
+image: https://images.unsplash.com/photo-1610056494052-6a4f83a8368c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80
+---
+<!-- prettier-ignore-end -->
 
 # Inhalt
 
@@ -46,7 +52,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-🏆 Ziele
+## 🏆 Ziele
 
 - 📝 Formularelemente
 - ✏️ `matchConfig` mutieren
@@ -67,7 +73,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-[🏁 Ausgangsposition: `TicTacToeParameters.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/987a29b89ea68bdb56037922bf41bf73560ca667/FrontEnd/src/lib/games/TicTacToeParameters.svelte)
+## [🏁 Ausgangsposition: `TicTacToeParameters.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/987a29b89ea68bdb56037922bf41bf73560ca667/FrontEnd/src/lib/games/TicTacToeParameters.svelte)
 
 ```html{all|4-13|15-19|23-47}
 <script>
@@ -141,7 +147,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-[🏁 Ausgangsposition: `NewMatch.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/987a29b89ea68bdb56037922bf41bf73560ca667/FrontEnd/src/pages/matches/_components/NewMatch.svelte)
+## [🏁 Ausgangsposition: `NewMatch.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/987a29b89ea68bdb56037922bf41bf73560ca667/FrontEnd/src/pages/matches/_components/NewMatch.svelte)
 
 ```html{all|22-27}
 <script>
@@ -196,7 +202,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-🧪 Technologie
+## 🧪 Technologie
 
 <img src="/json-schema-logo.png" alt="JSON Schema Logo" class="absolute top-10 right-10 w-100">
 
@@ -234,7 +240,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-🧪 Technologie in Bezug auf 🏆 Ziele
+## 🧪 Technologie in Bezug auf 🏆 Ziele
 
 - 🔌 Entkoppelung durch JSON Endpunkt ✅
 - 🔢 JSON Schema unterstützt Standardwerte ✅
@@ -253,17 +259,17 @@ _jeweils ..._
   ```
 
 <!--
-- Bietet Möglichkeit Default, Min und Max werte anzugeben
-
 - Schema ist JSON an sich
   - Kann entkoppelt von einem beliebigen Endpunkt zur laufzeit geladen werden
- -->
+
+- Bietet Möglichkeit Default, Min und Max werte anzugeben
+-->
 
 ---
 
 # ⚙️ Game Parameters
 
-🧪 Technologie in Bezug auf 🏆 Ziele
+## 🧪 Technologie in Bezug auf 🏆 Ziele
 
 - 📝 Formularelemente 👀
 
@@ -283,7 +289,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-[🔨 Umsetzung: `tictactoe/parameters.json`](https://git.fh-muenster.de/swa1/coding-challenge/games/cc-tictactoe/-/blob/master/parameters.json)
+## [🔨 Umsetzung: `tictactoe/parameters.json`](https://git.fh-muenster.de/swa1/coding-challenge/games/cc-tictactoe/-/blob/master/parameters.json)
 
 ```json
 {
@@ -325,9 +331,9 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-🔨 Umsetzung: TODO
+## 🔨 Umsetzung: TODO
 
-- 🔌 Passendes Parameter.json zum Game fetchen
+- 🔌 Passendes parameters.json zum Game fetchen
 - 📝 Rendern der passenden Formularelemente
 - ✏️ Binden der Formularelemente an das `matchConfig` Objekt
 
@@ -335,7 +341,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-[🔨 Umsetzung: `GameParameters.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/games/GameParameters/GameParameters.svelte)
+## [🔨 Umsetzung: `GameParameters.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/games/GameParameters/GameParameters.svelte)
 
 ```html{all|12-21|53-54|25-47}
 <script>
@@ -349,7 +355,7 @@ _jeweils ..._
     config = { ...config, parameters: {} };
   });
 
-  // 🔌 Passendes Parameter.json zum Game fetchen
+  // 🔌 Passendes parameters.json zum Game fetchen
   async function getParamSchema(gameId) {
     const res = await fetch(`/games/${gameId.toLowerCase()}/parameters.json`);
     const json = await res.json();
@@ -402,7 +408,7 @@ _jeweils ..._
 
 <!--
 1. RUN:
-- Passendes Parameter.json zum Game fetchen
+- Passendes parameters.json zum Game fetchen
 - Aufrufen von GamePropField und passen des JSON Schemas
 
 2. RUN: handleBubbleUpChange
@@ -416,7 +422,7 @@ _jeweils ..._
 
 # ⚙️ Game Parameters
 
-[🔨 Umsetzung: `GamePropField.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/games/GameParameters/GamePropField.svelte)
+## [🔨 Umsetzung: `GamePropField.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/games/GameParameters/GamePropField.svelte)
 
 <!-- prettier-ignore-start -->
 ```html{all|34-73|11-26}
@@ -522,7 +528,7 @@ _jeweils ..._
 
 # 🎲 Game UI Component
 
-🏆 Ziele
+## 🏆 Ziele
 
 - 👀 Game UI
 - ➡️📦 Daten Input
@@ -543,9 +549,9 @@ _jeweils ..._
 
 # 🎲 Game UI Component
 
-[🏁 Ausgangsposition: `TicTacToe.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/8e8d0dc48a0a4b2a39dafcf5d6dccdca83f44fbc/FrontEnd/src/lib/games/TicTacToe.svelte)
+## [🏁 Ausgangsposition: `TicTacToe.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/8e8d0dc48a0a4b2a39dafcf5d6dccdca83f44fbc/FrontEnd/src/lib/games/TicTacToe.svelte)
 
-```html{all|7-9|22-26|40-56}
+```html{all|6-8|21-25|39-55}
 <script>
   import { afterUpdate, createEventDispatcher } from "svelte";
 
@@ -644,7 +650,7 @@ _jeweils ..._
 
 # 🎲 Game UI Component
 
-[🏁 Ausgangsposition: `GameRunner.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/8e8d0dc48a0a4b2a39dafcf5d6dccdca83f44fbc/FrontEnd/src/pages/matches/%5BmatchId%5D/_components/GameRunner.svelte)
+## [🏁 Ausgangsposition: `GameRunner.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/8e8d0dc48a0a4b2a39dafcf5d6dccdca83f44fbc/FrontEnd/src/pages/matches/%5BmatchId%5D/_components/GameRunner.svelte)
 
 ```html{all|74-87}
 <script>
@@ -773,7 +779,7 @@ _jeweils ..._
 
 # 🎲 Game UI Component
 
-🧪 Technologie
+## 🧪 Technologie
 
 <img src="/web-comps.png" alt="Web Component Components" class="absolute top-10 right-10 w-100">
 
@@ -796,20 +802,20 @@ _jeweils ..._
 - Web Components als standardisiertes Komponenten Modell für offenes Web
   - Ziel: unabhängig von Browsern und Frameworks Komponenten erstellen und verwenden + Hohe Flexibilität
   - besteht aus einer Reihe von APIs
-    - Custom Elements: Erstellen von neuen HTML Tags bzw. DOM Elementen und Callbacks für geänderte Attribute / Properties
+    - Custom Elements: Erstellen von neuen HTML Tags bzw. DOM Elementen
     - Shadow DOM: Kapseln von Struktur, Style und Verhalten um z.B. Konflikte zu vermeiden
     - HTML Template: Definieren von wiederverwendbaren Dokumentfragmenten
 
 - Letztes Jahr: Seminar Informatik Artikel über WebComponents hier Link als Blogpost (englisch)
 
 - Svelte Compiler Output: Mitnahme des Alten Codes!
- -->
+-->
 
 ---
 
 # 🎲 Game UI Component
 
-🧪 Technologie in Bezug auf 🏆 Ziele
+## 🧪 Technologie in Bezug auf 🏆 Ziele
 
 - 👀 Game UI Svelte Code kann als Web Component kompiliert werden ✅
 - ➡️📦 Daten Input über Attributes / Properties ✅
@@ -820,7 +826,7 @@ _jeweils ..._
 
 # 🎲 Game UI Component
 
-[🔨 Umsetzung: `TicTacToe.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/games/cc-tictactoe/-/blob/master/gamefield/src/TicTacToe.svelte)
+## [🔨 Umsetzung: `TicTacToe.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/games/cc-tictactoe/-/blob/master/gamefield/src/TicTacToe.svelte)
 
 ```html{all|1-2|8-15|19|all}
 <!-- 👉 Definieren des HTMl Tags -->
@@ -931,7 +937,7 @@ _jeweils ..._
 
 # 🎲 Game UI Component
 
-🔨 Umsetzung: TODO
+## 🔨 Umsetzung: TODO
 
 - 🔌 Passende Gamefield JS Datei importieren
 - 👀 Game UI Web Component rendern
@@ -942,7 +948,7 @@ _jeweils ..._
 
 # 🎲 Game UI Component
 
-[🔨 Umsetzung: `GamefieldWrapper.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/matches/GamefieldWrapper.svelte)
+## [🔨 Umsetzung: `GamefieldWrapper.svelte`](https://git.fh-muenster.de/swa1/coding-challenge/platform/-/blob/master/FrontEnd/src/lib/matches/GamefieldWrapper.svelte)
 
 ```html{all|24-27|29-30,35,49|31-33,42-46|18-21,34,38-40|all}
 <script>
@@ -996,6 +1002,7 @@ _jeweils ..._
 <div bind:this={wrapper}/>
 ```
 
+<!-- prettier-ignore-start -->
 <!--
 - Passendes gamefield js vom Endpunkt über await import laden
 - Rendern der Game UI Web Component: element erstellen in wrapper div appenden
@@ -1004,9 +1011,6 @@ _jeweils ..._
 
 - nutzen dieser Komponenten statt der Spielspezifischen Komponenten im MatchRunner.
  -->
-
-<!-- prettier-ignore-start -->
-<!--  -->
 ---
 layout: cover
 background: https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
@@ -1016,3 +1020,5 @@ background: https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?a
 # Vielen Dank für Ihre Aufmerksamkeit
 
 Vortrag von Antonio Sarcevic - Masterprojekt: Coding Challenge / {BOTolution} - SS 2021 + WS 2021/22
+
+<img class="mt-4" src="/fh.svg" alt="FH Münster Logo">
