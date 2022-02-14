@@ -70,10 +70,11 @@
 
 .hover-right {
   position: absolute;
-  right: 1em;
-  top: 33%;
+  top: 3.5rem;
+  right: 3.5rem;
   display: flex;
   justify-content: end;
+  max-height: 85%;
 }
 
 .spoiler {
