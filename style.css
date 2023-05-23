@@ -70,13 +70,20 @@
 
 .hover-right {
   position: absolute;
-  top: 3.5rem;
+  top: 50%;
+  translate: 0 -50%;
   right: 3.5rem;
   display: flex;
   justify-content: end;
   max-height: 85%;
+  max-width: 25rem;
 }
 
 .spoiler {
   filter: blur(15px);
+}
+
+
+as-grow {
+  flex-grow: 1;
 }
