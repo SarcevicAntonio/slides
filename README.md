@@ -1,9 +1,11 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# my Slides template
+
+[powered by slidevjs](https://github.com/slidevjs/slidev)
 
 To start the slide show:
 
-- `npm install`
-- `npm run dev`
+- `pnpm i`
+- `pnpm dev`
 - visit http://localhost:3030
 
 Edit the [slides.md](./slides.md) to see the changes.
