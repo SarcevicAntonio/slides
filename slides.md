@@ -42,7 +42,7 @@ image: https://images.pexels.com/photos/1840142/pexels-photo-1840142.jpeg?cs=srg
 - At vero eos et accusam et justo duo dolores et ea rebum.
   - Stet clita kasd gubergren
   - no sea takimata sanctus est Lorem ipsum dolor sit amet
-      - Lorem ipsum dolor sit amet
+    - Lorem ipsum dolor sit amet
 - sed diam nonumy eirmod tempor invidunt
 - ut labore et dolore magna aliquyam erat
 
@@ -65,9 +65,7 @@ image: https://images.pexels.com/photos/1830667/pexels-photo-1830667.jpeg?cs=srg
 - At vero eos et accusam et justo duo dolores et ea rebum.
   - Stet clita kasd gubergren
   - no sea takimata sanctus est Lorem ipsum dolor sit amet
-      - Lorem ipsum dolor sit amet
-
-
+    - Lorem ipsum dolor sit amet
 
 <!--
 ...
@@ -161,14 +159,10 @@ image: https://images.pexels.com/photos/1830667/pexels-photo-1830667.jpeg?cs=srg
 } // erlaubt ein JSON Objekt mit someKey und Wert vom Typ String (z.B. { someKey: "Hello JSON Schema" })
 ```
 
+<!-- prettier-ignore-start -->
 <!--
-- Game Parameters als beschreibung eines JSON Objekts
-- JSON Schema als Spezifikation von JSON Dokumenten
-  - kann z.B. Objekte Beschreiben
-  - wird in der Regel zum validieren von JSON Dokumenten genutzt
+...
  -->
-
----
 layout: cover
 background: https://images.pexels.com/photos/16929691/pexels-photo-16929691.jpeg?cs=srgb&dl=pexels-brayan-berrospi-silvestre-16929691.jpg&fm=jpg&w=2812&h=3515
 ---

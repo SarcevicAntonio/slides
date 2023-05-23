@@ -1,8 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@iconify-json/material-symbols': ^1.1.24
-  '@iconify-json/mdi': ^1.1.52
+  '@iconify/json': ^2.2.68
   '@slidev/cli': '*'
   '@slidev/theme-default': '*'
   '@slidev/theme-seriph': '*'
@@ -13,8 +12,7 @@ dependencies:
   '@slidev/theme-seriph': 0.21.3
 
 devDependencies:
-  '@iconify-json/material-symbols': 1.1.24
-  '@iconify-json/mdi': 1.1.52
+  '@iconify/json': 2.2.68
 
 packages:
 
@@ -562,23 +560,18 @@ packages:
       '@iconify/types': 2.0.0
     dev: false
 
-  /@iconify-json/material-symbols/1.1.24:
-    resolution: {integrity: sha512-yg7KGVbrQ5NU/BZWj+rfEoeR3JA8ehCvY1SgrW+iuZjzZk3qm1sQcwQ5AktvEx/Hx9qnqQMMpscQJRPJxOq6rQ==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
-  /@iconify-json/mdi/1.1.52:
-    resolution: {integrity: sha512-tLzpFcmoGw1/jHcl+BshUd4bqvP4755OUluaARsuKskTp2aIPIAkRQOhzJGpry9CZ0i82z0alq4HrKrp9uvj4A==}
-    dependencies:
-      '@iconify/types': 2.0.0
-    dev: true
-
   /@iconify-json/ph/1.1.5:
     resolution: {integrity: sha512-iLXq3nohfGge22gL2tZmQ2WHBKkKkIbGWrkuyC8arckS4PWaONyh4A+uDPtSek9QbYDvi9AE2+NxWkNZhANotA==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: false
+
+  /@iconify/json/2.2.68:
+    resolution: {integrity: sha512-UNgbecms1tWhvY9ycXbWW/nOLlx5Xxlufp+dHWontty0j+yiQfap3UshpSGGAt74C9OLYEFKTl42d20PLRakzg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.0
+    dev: true
 
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3265,7 +3258,6 @@ packages:
 
   /pathe/1.1.0:
     resolution: {integrity: sha512-ODbEPR0KKHqECXW1GoxdDb+AZvULmXjVPy4rt+pGo2+TnjJTIPJQSVS6N63n8T2Ip+syHhbn52OewKicV0373w==}
-    dev: false
 
   /pdf-lib/1.17.1:
     resolution: {integrity: sha512-V/mpyJAoTsN4cnP31vc0wfNA1+p20evqqnap0KLoRUN0Yk/p3wN52DOEsL4oBFcLdb76hlpKPtzJIgo67j/XLw==}
